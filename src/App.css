@@ -1,0 +1,389 @@
+/* 
+    untyped character: rgba(255,255,255,0.2)
+    correct character: #7fe08a
+    incorrect character: #ff7b7b
+    button color: #f6c63e
+    backgroundcolor: #414141
+    #646669
+*/
+
+/* Theme tokens */
+:root {
+  --color-untyped: rgba(255, 255, 255, 0.2);
+  --color-correct: #7fe08a;
+  --color-incorrect: #ff7b7b;
+  --color-button: #e2b714;
+  --color-bg: ##646669;
+  --color-body-bg: #323437;
+  --color-title-dark:#d1d0c5
+  --text-on-dark: #ffffff;
+  --text-on-light: #d1d0c5;
+  --nav-background:#323437
+  --btn-radius: 10px;
+  --btn-padding: 0.5rem 0.9rem;
+  --btn-font-weight: 600;
+  --btn-transition: 160ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+:root{
+  --roundness: .5rem;
+  --bg-color:#323437;
+  --bg-color: #323437;
+    --main-color: #e2b714;
+    --caret-color: #e2b714;
+    --sub-color: #646669;
+    --sub-alt-color: #2c2e31;
+    --text-color: #d1d0c5;
+    --error-color: #ca4754;
+    --error-extra-color: #7e2a33;
+    --colorful-error-color: #ca4754;
+    --colorful-error-extra-color: #7e2a33;
+}
+
+/* Page */
+body {
+  margin: 0;
+  background: var(--color-body-bg);
+  color: var(--text-on-dark);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+}
+
+.title {
+  color: #d1d0c5;
+  margin-top: 2rem;
+
+  /* Typography */
+  font-family: "Roboto Mono", Vazirmatn, monospace;
+  font-size: 20.8px;
+  line-height: 20.8px;
+  font-weight: 200px; /* Regular */
+  letter-spacing: normal;
+
+  /* layout / readability */
+  width: 80%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.timer-button{
+ appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.selected{
+  color:#e2b714
+}
+.notSelected{
+  color:#646669;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left:8rem; 
+  padding-right:8rem; 
+  justify-content:center;
+  position: relative;
+}
+
+/* Timer text */
+.timer {
+  margin: 0; /* remove large top/left margin so flex row works */
+  color: var(--color-button);
+}
+
+/* Paragraph / typing area */
+.paragraph {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  border: 4px solid rgba(242, 198, 62, 1); /* same as button color */
+  border-radius: 5px;
+  margin-top:8.5rem;
+  flex-wrap: wrap;
+  background: var(--color-bg);
+  color: var(--text-on-dark);
+}
+
+.untyped {
+  color: var(--color-untyped);
+}
+.correct {
+  color: var(--color-correct);
+}
+.incorrect {
+  color: var(--color-incorrect);
+}
+
+/* Hidden input (accessible) */
+.input {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Timer container and options */
+.timerContainer {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  height:max-content;
+  font-size:.75rem;
+  padding-top:1em;
+  padding-bottom:1em;
+  padding-left:1em;
+  padding-right:1em;
+  height:32px;
+  margin-top:2rem;
+  margin-left:8.5%;
+  margin-bottom:1rem;
+  background:#2c2e31;
+  border-radius:.5rem;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.spacer{
+  height:auto;
+  width:5em;
+  border-radius:calc(var(--roundness)/2);
+  background: var(--bg-color);  
+      margin: .75em 0;
+    transition: .25s;
+}
+
+.timerOptions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center; /* center text and the vertical bar */
+}
+
+/* vertical bar separator */
+.break {
+  display: inline-block;
+  width: 2px;
+  height: 1.5rem;
+  background: var(--color-untyped); /* subtle separator */
+  margin: 0 0.5rem;
+  border-radius: 1px;
+  vertical-align: middle;
+}
+
+/* small pill used for showing game time */
+.gameTimer {
+  display: inline-block;
+  min-width: 3.25rem;
+  padding: 6px 10px;
+  text-align: center;
+  color: var(--color-button);
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid rgba(242, 198, 62, 0.15);
+  background: transparent;
+}
+
+.resetContainer{
+  width:80%;
+  /* background:red; */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:.45rem;
+}
+
+/* ----------------------------
+   Button system (semantic)
+   ---------------------------- */
+
+/* Base button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width:max-content;
+  border-radius:calc(var(--roundness)/2);
+  gap: 0.5rem;
+  padding: var(--btn-padding);
+
+  font-weight: var(--btn-font-weight);
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: transform 80ms linear, box-shadow var(--btn-transition),
+    background-color var(--btn-transition), color var(--btn-transition),
+    filter var(--btn-transition);
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+/* Shared interaction */
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:focus {
+  outline: none;
+}
+.btn:focus-visible {
+  outline: none;
+}
+
+/* Primary (accent CTA)
+   - Using dark text on the yellow background for better contrast
+*/
+.btn--primary {
+  background: var(--color-button);
+  width:max-content;
+  color: var(--text-on-light); /* dark text for strong contrast on yellow */
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08) inset;
+}
+.btn--primary:hover {
+  filter: brightness(0.98);
+  box-shadow: 0 6px 18px rgba(246, 198, 62, 0.08);
+}
+.btn--primary:active {
+  filter: brightness(0.96);
+  transform: translateY(0);
+}
+.btn--primary:focus {
+  box-shadow: 0 0 0 4px rgba(246, 198, 62, 0.16);
+}
+
+/* Success (correct) */
+.btn--success {
+  background: var(--color-correct);
+  color: var(--text-on-dark);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+.btn--success:hover {
+  filter: brightness(0.98);
+  box-shadow: 0 6px 18px rgba(127, 224, 138, 0.08);
+}
+.btn--success:focus {
+  box-shadow: 0 0 0 4px rgba(127, 224, 138, 0.14);
+}
+
+/* Danger (incorrect) */
+.btn--danger {
+  background: var(--color-incorrect);
+  color: var(--text-on-dark);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+.btn--danger:hover {
+  filter: brightness(0.98);
+  box-shadow: 0 6px 18px rgba(255, 123, 123, 0.08);
+}
+.btn--danger:focus {
+  box-shadow: 0 0 0 4px rgba(255, 123, 123, 0.14);
+}
+
+/* Warning (alternative CTA, similar to primary) */
+.btn--warning {
+  background: var(--color-button);
+  color: var(--text-on-light);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+.btn--warning:hover {
+  filter: brightness(0.97);
+}
+
+/* Ghost / neutral (outline) */
+.btn--ghost {
+  background: transparent;
+  color: var(--text-on-dark);
+  border: 1px solid var(--color-untyped);
+  box-shadow: none;
+}
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-1px);
+}
+.btn--ghost:focus {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+
+/* Outline variant with accent */
+.btn--outline-accent {
+  background: transparent;
+  color: var(--color-button);
+  border: 1px solid var(--color-button);
+}
+.btn--outline-accent:hover {
+  background: rgba(246, 198, 62, 0.06);
+  filter: none;
+}
+
+/* Size modifiers */
+.btn--sm {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+  border-radius: 8px;
+}
+.btn--lg {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+/* Disabled */
+.btn[disabled],
+.btn--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+/* Icon helper */
+.btn > .icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+/* Utility: small gap between buttons in the timer container */
+.timerContainer > .btn {
+  min-width: 5.5rem;
+}
+
+/* Optional: improve contrast on .paragraph border for smaller screens */
+@media (max-width: 640px) {
+  .paragraph {
+    width: auto;
+    margin: 2em;
+    height: auto;
+  }
+}
