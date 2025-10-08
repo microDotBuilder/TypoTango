@@ -1,6 +1,8 @@
 import "./NavBar.css";
 import { Bell, User } from "lucide-react";
 function NavBar() {
+  const isLoggedIn = false; // TODO: implement login in future.
+  const userIcon = isLoggedIn ? "user-icon-logedin" : "user-icon";
   return (
     <div className="navbar">
       <div className="navbar-title">TypoTango</div>
@@ -9,7 +11,7 @@ function NavBar() {
           <Bell className="bell-icon" />
         </a>
         <a href="/typotango/login" className="navbar-option">
-          <User className="user-icon" />
+          <User className={userIcon} />
         </a>
       </div>
     </div>
