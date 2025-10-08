@@ -4,6 +4,12 @@ export const wordState = {
   INCORRECT: "incorrect",
 };
 
+export const appState = {
+  IDLE: "IDLE",
+  TYPING: "TYPING",
+  FINISHED: "FINISHED",
+} as const;
+
 export const TIMERSTATE = {
   "15seconds": 15,
   "30seconds": 30,

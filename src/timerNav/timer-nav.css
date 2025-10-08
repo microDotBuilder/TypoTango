@@ -23,6 +23,10 @@
   color: var(--text-color);
   gap: 0.5rem;
 }
+.selected {
+  color: var(--main-color);
+}
+
 .time {
   display: flex;
   align-items: center;

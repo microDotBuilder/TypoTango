@@ -13,7 +13,7 @@ function Home() {
       <NavBar />
       <div>{timer}</div>
       <div className="timer-nav">
-        <TimerNav setTimer={setTimer} />
+        <TimerNav setTimer={setTimer} currentTimer={timer} />
       </div>
       <div className="home-content">
         <h1 className="home-title">Welcome to the Home Page</h1>
