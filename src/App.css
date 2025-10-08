@@ -378,7 +378,6 @@ body {
   min-width: 5.5rem;
 }
 
-/* Optional: improve contrast on .paragraph border for smaller screens */
 @media (max-width: 640px) {
   .paragraph {
     width: auto;
