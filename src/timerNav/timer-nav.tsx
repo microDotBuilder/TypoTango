@@ -18,9 +18,8 @@ function TimerNav({
           </i>
           time
         </button>
+        <div className="spacer rightSpacer" />
       </div>
-
-      <div className="spacer rightSpacer"></div>
 
       <div className="time">
         <button
