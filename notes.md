@@ -1,5 +1,11 @@
 ## v1
 
+## TODO:
+
+- [ ] extracting the components and rendering them
+- [ ] get the text font
+- [ ] get icons
+
 - icons for the app lucid icons
 - seprate components:
   - navbar component

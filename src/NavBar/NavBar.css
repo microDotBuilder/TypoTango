@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  height: 32px;
+  margin-left: 8.5%;
+  margin-bottom: 1rem;
+  background: #2c2e31;
+}
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.bell-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: var(--text-color);
+}
+.user-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: var(--text-color);
+}
+.navbar-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-option {
+  font-size: 1rem;
+  font-weight: 200;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.navbar-option:hover {
+  color: var(--main-color);
+}

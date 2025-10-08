@@ -44,8 +44,7 @@ body {
   margin: 0;
   background: var(--color-body-bg);
   color: var(--text-on-dark);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial;
+  font-family: "Geist Mono", "Roboto Mono", "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace;
 }
 
 .title {
@@ -53,7 +52,7 @@ body {
   margin-top: 2rem;
 
   /* Typography */
-  font-family: "Roboto Mono", Vazirmatn, monospace;
+  font-family: "Geist Mono", "Roboto Mono", "SF Mono", "Monaco", "Inconsolata", "Source Code Pro", monospace;
   font-size: 20.8px;
   line-height: 20.8px;
   font-weight: 200px; /* Regular */

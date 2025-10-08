@@ -57,10 +57,12 @@ function App() {
   const [totalWordsTyped, setTotalTypedWOrds] = useState(0);
   const [correctolyTypedWords, setCorrectlyTypedWords] = useState(0);
 
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onLoad = () => {
-    inputRef.current?.focus();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
 
   const computeStats = () => {

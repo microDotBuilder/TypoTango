@@ -8,6 +8,7 @@ export const TIMERSTATE = {
   "15seconds": 15,
   "30seconds": 30,
   "60seconds": 60,
+  "120seconds": 120,
 };
 
 export const PARAGRAPH =
