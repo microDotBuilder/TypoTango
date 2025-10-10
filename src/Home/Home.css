@@ -9,6 +9,9 @@
   --sub-alt-color: #2c2e31;
   --text-color: #d1d0c5;
   --error-color: #ca4754;
+  --color-untyped: rgba(255, 255, 255, 0.2);
+  --color-correct: #7fe08a;
+  --color-incorrect: #ff7b7b;
 }
 body {
   font-family: "Roboto Mono", monospace;

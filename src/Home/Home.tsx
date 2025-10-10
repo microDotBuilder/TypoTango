@@ -12,12 +12,11 @@ import { useAppState } from "../provider/appStateProvider";
 function Home() {
   const [timer, setTimer] = useState<timerValue>(TIMERSTATE["15seconds"]);
   const currentAppState = useAppState();
-  console.log(currentAppState.state.current);
   return (
     <div className="header-container ">
       <NavBar />
       {currentAppState.state.current === appState.TYPING ? (
-        <div className="timer-nav-display">{timer}</div>
+        <></>
       ) : (
         <div className="timer-nav">
           <TimerNav setTimer={setTimer} currentTimer={timer} />
@@ -25,7 +24,7 @@ function Home() {
       )}
 
       <div className="home-content">
-        <MainComponent timer={timer} />
+        <MainComponent initialTimerValue={timer} />
       </div>
 
       {currentAppState.state.current === appState.TYPING ? (

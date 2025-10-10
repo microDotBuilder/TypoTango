@@ -1,0 +1,29 @@
+.paragraph {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  font-size: 1.5rem;
+  font-weight: 600;
+  flex-wrap: wrap;
+  /* disable text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /* Scrollable container with max 3 lines */
+  max-height: calc(1.5rem * 1.2 * 3); /* font-size * line-height * 3 lines */
+  overflow-y: auto;
+  line-height: 1.2;
+}
+
+.untyped {
+  color: var(--color-untyped);
+  /* color: red; */
+}
+.correct {
+  color: var(--color-correct);
+  /* color: green; */
+}
+.incorrect {
+  color: var(--color-incorrect);
+  /* color: blue; */
+}

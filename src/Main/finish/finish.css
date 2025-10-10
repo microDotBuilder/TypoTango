@@ -1,0 +1,86 @@
+.finish-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  text-align: center;
+  border-radius: 12px;
+}
+.stats-container {
+  display: flex;
+  gap: 2rem;
+  flex: 2;
+}
+
+.graph-and-details-container {
+  display: flex;
+  flex-direction: column;
+  /* grid-template-rows: 3fr 1fr; */
+  height: 100%;
+  width: 100%;
+}
+.graph-container {
+  flex: 3;
+}
+.details-container {
+  display: flex;
+  flex: 1;
+  /* height: 100px; */
+  flex-direction: row;
+}
+
+.additional-metric-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* padding: 1rem; */
+  background: var(--bg-color);
+  margin-left: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 8px;
+}
+.metric-title {
+  font-size: 0.8rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  /* letter-spacing: 0.5px;
+  font-weight: 200; */
+}
+.metric-value {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: var(--main-color);
+}
+/* Primary Stats */
+.primary-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--main-color);
+}

@@ -21,6 +21,13 @@ export const useTimer = ({
     };
   }, []);
 
+  // Handle timer finish when timerState reaches 0
+  useEffect(() => {
+    if (timerState === 0) {
+      onFinish();
+    }
+  }, [timerState, onFinish]);
+
   const startTimer = useCallback(() => {
     // Avoid starting multiple intervals
     if (intervalRef.current !== null) return;
@@ -33,13 +40,12 @@ export const useTimer = ({
             clearInterval(intervalRef.current);
             intervalRef.current = null;
           }
-          onFinish();
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
-  }, [onFinish]);
+  }, []);
 
   // changed signature: accept timerValue directly
   const updateTimer = useCallback((newTimer: timerValue) => {
