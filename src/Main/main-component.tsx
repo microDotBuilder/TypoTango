@@ -127,7 +127,6 @@ function MainComponent({
 
   const onLoad = () => {
     if (inputRef.current && state.current != appState.FINISHED) {
-      setInputCharacters("");
       inputRef.current.focus();
     }
   };
@@ -171,7 +170,8 @@ function MainComponent({
           <Finish
             totalWordsTyped={totalWordsTyped}
             correctlyTypedWords={correctlyTypedWords}
-            timeTaken={timerState}
+            timeTaken={initialTimerValue - timerState}
+            timerState={timerState}
             initialTimerValue={initialTimerValue}
             characterData={characterData}
             inputCharacters={inputCharacters}

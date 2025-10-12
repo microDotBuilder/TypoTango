@@ -15,7 +15,8 @@ function Home() {
   return (
     <div className="header-container ">
       <NavBar />
-      {currentAppState.state.current === appState.TYPING ? (
+      {currentAppState.state.current === appState.TYPING ||
+      currentAppState.state.current === appState.FINISHED ? (
         <></>
       ) : (
         <div className="timer-nav">
