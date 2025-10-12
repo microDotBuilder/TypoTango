@@ -14,13 +14,6 @@ function MainComponent({
 }: {
   initialTimerValue: timerValue;
 }) {
-  const onTypingFinished = () => {
-    setAppState(appState.FINISHED);
-    resetTimer();
-    inputRef.current = null;
-    setInputCharacters("");
-  };
-
   const [initialState, setInitialState] = useState<
     { char: string; wordState: string }[]
   >([]);
@@ -36,6 +29,51 @@ function MainComponent({
   const [correctlyTypedWords, setCorrectlyTypedWords] = useState(0);
   const [rawWpmHistory, setRawWpmHistory] = useState<number[]>([]);
   const [characterData, setCharacterData] = useState<CharacterData[]>([]);
+
+  // Auto-scroll function to scroll up by 2 lines when user reaches last visible line
+  const handleAutoScroll = (currentCharIndex: number) => {
+    const paragraphElement = document.querySelector(
+      ".paragraph"
+    ) as HTMLElement;
+    if (!paragraphElement) return;
+
+    const lineHeight = 1.5 * 1.2; // font-size * line-height in rem
+    const scrollAmount = 1 * lineHeight * 16; // Convert to pixels (1 line worth)
+
+    // Get all character spans
+    const spans = paragraphElement.querySelectorAll("span");
+    if (spans.length === 0) return;
+
+    // Find the current character span
+    const currentSpan = spans[currentCharIndex];
+    if (!currentSpan) return;
+
+    // Get the position of the current character
+    const spanRect = currentSpan.getBoundingClientRect();
+    const containerRect = paragraphElement.getBoundingClientRect();
+
+    // Calculate relative position within the container
+    const relativeTop = spanRect.top - containerRect.top;
+    const containerHeight = paragraphElement.clientHeight;
+
+    // Check if the current character is in the last visible line (bottom third)
+    const lastLineThreshold = containerHeight * (2 / 3); // Bottom third of visible area
+
+    // Debug logging
+    // console.log("Auto-scroll debug:", {
+    //   currentCharIndex,
+    //   relativeTop,
+    //   containerHeight,
+    //   lastLineThreshold,
+    //   shouldScroll: relativeTop >= lastLineThreshold,
+    // });
+
+    if (relativeTop >= lastLineThreshold) {
+      console.log("Scrolling by:", scrollAmount);
+      paragraphElement.scrollTop += scrollAmount;
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAppState(appState.TYPING);
     setInputCharacters(e.target.value);
@@ -73,13 +111,14 @@ function MainComponent({
 
     setCorrectlyTypedWords(cc);
     setInitialState(result);
-    setTotalTypedWords(totalWordsTyped + delta);
 
-    // Update character data for calculations
     setCharacterData(result);
 
+    // Trigger auto-scroll when user progresses
+    handleAutoScroll(input.length);
+
     // Calculate and track raw WPM for consistency calculation
-    const timeElapsed = (initialTimerValue - timerState) / 1000; // Convert to seconds
+    const timeElapsed = initialTimerValue - timerState; // Already in seconds
     if (timeElapsed > 0) {
       const currentRawWpm = Math.round((input.length / 5) * (60 / timeElapsed));
       setRawWpmHistory((prev) => [...prev, currentRawWpm]);
@@ -92,6 +131,26 @@ function MainComponent({
       inputRef.current.focus();
     }
   };
+
+  /** 
+  const onTypingFinished = () => {
+    // console.log(totalWordsTyped);
+    console.log(`timer taken: ${timerState}`);
+    setAppState(appState.FINISHED);
+    resetTimer();
+    inputRef.current = null;
+    setInputCharacters("");
+  };
+      Made a mistake, need to change the function signature because of
+      HOISTING.
+  */
+  function onTypingFinished() {
+    console.log(`timer taken: ${timerState}`);
+    setAppState(appState.FINISHED);
+    resetTimer();
+    inputRef.current = null;
+    setInputCharacters("");
+  }
 
   useEffect(() => {
     setInitialState(getRandomInitialState(initialTimerValue));

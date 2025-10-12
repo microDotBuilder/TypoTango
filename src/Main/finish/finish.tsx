@@ -17,6 +17,8 @@ type FinishProps = {
 };
 
 function Finish({
+  totalWordsTyped,
+  correctlyTypedWords,
   timeTaken,
   initialTimerValue,
   characterData,
@@ -31,6 +33,21 @@ function Finish({
     timeInSeconds,
     rawWpmHistory
   );
+
+  const computeStats = () => {
+    // const totalWords = charsFromParagraph.length;
+
+    return {
+      wordsPerMinute: (totalWordsTyped / 60) * 100,
+      Accuracy: ((correctlyTypedWords / totalWordsTyped) * 100).toFixed(2),
+    };
+  };
+  const { wordsPerMinute, Accuracy } = computeStats();
+  console.log(`correctlyTypedWords: ${correctlyTypedWords}`);
+  console.log(`totalWordsTyped: ${totalWordsTyped}`);
+  console.log(`Accuracy: ${Accuracy}`);
+  console.log(`wordsPerMinute: ${wordsPerMinute}`);
+  console.log(`timeInSeconds: ${timeInSeconds}`);
 
   // Format time in MM:SS format
   const formatTime = (seconds: number): string => {
@@ -47,11 +64,11 @@ function Finish({
         <div className="primary-stats">
           <div className="stat-item">
             <span className="stat-label">wpm</span>
-            <span className="stat-value">{metrics.wpm}</span>
+            <span className="stat-value">{wordsPerMinute}</span>
           </div>
           <div className="stat-item">
             <span className="stat-label">acc</span>
-            <span className="stat-value">{metrics.accuracy}%</span>
+            <span className="stat-value">{Accuracy}%</span>
           </div>
         </div>
         <div className="graph-and-details-container">
@@ -61,7 +78,7 @@ function Finish({
           <div className="details-container">
             <div className="additional-metric-container">
               <span className="metric-title">raw</span>
-              <span className="metric-value">{metrics.rawWpm}</span>
+              <span className="metric-value">{totalWordsTyped}</span>
             </div>
             <div className="additional-metric-container">
               <span className="metric-title">characters</span>
@@ -77,7 +94,7 @@ function Finish({
             </div>
             <div className="additional-metric-container">
               <span className="metric-title">time</span>
-              <span className="metric-value">{formatTime(timeInSeconds)}s</span>
+              <span className="metric-value">{timeTaken}s</span>
             </div>
             <div className="additional-metric-container">
               <span className="metric-title">session</span>
