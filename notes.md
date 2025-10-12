@@ -6,7 +6,7 @@
 - [x] get the text font
 - [x] get icons
 
-- [ ] blinking carrot for typing text
+- [x] blinking carrot for typing text
 - [ ] fix timer display , on timer start it stays on top too much .
 - [x] reset button
 - [ ] build routing,add react router.
