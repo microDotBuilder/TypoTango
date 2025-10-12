@@ -29,8 +29,8 @@
 .reset-button {
   margin-bottom: 2rem;
   position: relative;
-  font-size: 0.8rem;
-  font-weight: 300;
+  font-size: 0.2rem;
+  font-weight: 200;
   color: var(--sub-color);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -41,7 +41,10 @@
     color: var(--main-color);
   }
 }
-
+.reset-icon {
+  width: 1rem;
+  height: 1rem;
+}
 .reset-button button {
   position: relative;
   display: flex;

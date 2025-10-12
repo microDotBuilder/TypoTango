@@ -7,7 +7,8 @@
 - [x] get icons
 
 - [ ] blinking carrot for typing text
-- [ ] reset button
+- [ ] fix timer display , on timer start it stays on top too much .
+- [x] reset button
 - [ ] build routing,add react router.
 - [x] fix the scroll issue
 - [x] delete all the unnessasry code.

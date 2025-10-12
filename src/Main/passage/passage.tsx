@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import "./passage.css";
 export function Passage({
   initialState,
@@ -14,8 +15,16 @@ export function Passage({
     <div>
       <div className="paragraph">
         {initialState.map((item, index) => {
+          const isCarrot = inputCharacters.length === index;
           return (
-            <span key={`${index}-${item}`} className={item.wordState}>
+            <span
+              key={`${index}-${item}`}
+              className={classNames(
+                item.wordState,
+                isCarrot && "carrot",
+                "char"
+              )}
+            >
               {item.char === " " ? "\u00A0" : item.char}
             </span>
           );

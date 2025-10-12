@@ -5,7 +5,6 @@
   font-size: 1.5rem;
   font-weight: 600;
   position: relative;
-
   flex-wrap: wrap;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -20,6 +19,22 @@
   max-height: calc(1.5rem * 1.2 * 3); /* font-size * line-height * 3 lines */
   overflow-y: hidden;
   line-height: 1.2;
+}
+.char {
+  position: relative;
+  transition: color 150ms ease;
+}
+
+.char.carrot::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 2px;
+  height: 2rem;
+  display: inline-block;
+  background-color: var(--main-color);
+  animation: caret 1s step-start infinite;
 }
 
 .untyped {
@@ -46,4 +61,16 @@
   padding: 0;
   margin: 0;
   overflow: hidden;
+}
+
+@keyframes caret {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

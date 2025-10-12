@@ -48,11 +48,6 @@ function Finish({
     };
   };
   const { wordsPerMinute, Accuracy } = computeStats();
-  // console.log(`correctlyTypedWords: ${correctlyTypedWords}`);
-  // console.log(`totalWordsTyped: ${totalWordsTyped}`);
-  // console.log(`Accuracy: ${Accuracy}`);
-  // console.log(`wordsPerMinute: ${wordsPerMinute}`);
-  // console.log(`timeInSeconds: ${timeInSeconds}`);
 
   // Format time in MM:SS format
   const formatTime = (seconds: number): string => {

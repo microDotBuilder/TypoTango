@@ -1,6 +1,6 @@
 import "./main-component.css";
 import { getRandomInitialState } from "./utils/getPassage";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import type { timerValue } from "../types/types";
 import { useAppState } from "../provider/appStateProvider";
 import { Passage } from "./passage/passage";
@@ -8,7 +8,7 @@ import { useTimer } from "../hooks/useTImerHook";
 import { wordState } from "../consts";
 import Finish from "./finish/finish";
 import type { CharacterData } from "./utils/typingCalculations";
-import { RefreshCcw } from "lucide-react";
+import { RotateCw } from "lucide-react";
 
 function MainComponent({
   initialTimerValue,
@@ -26,11 +26,36 @@ function MainComponent({
   const [correctlyTypedWords, setCorrectlyTypedWords] = useState(0);
   const [rawWpmHistory, setRawWpmHistory] = useState<number[]>([]);
   const [characterData, setCharacterData] = useState<CharacterData[]>([]);
+
+  // Define handleResetTimer before using it in useTimer
+  const handleResetTimer = useCallback(() => {
+    setInputCharacters("");
+    const newPassage = getRandomInitialState(initialTimerValue);
+    setInitialState(newPassage);
+    setCharacterData([]);
+    setRawWpmHistory([]);
+    setTotalTypedWords(0);
+    setCorrectlyTypedWords(0);
+    setAppState(appState.IDLE);
+  }, [initialTimerValue, setAppState, appState.IDLE]);
+
+  const onFinish = useCallback(() => {
+    console.log(`timer taken: ${initialTimerValue - timerState}`);
+    setAppState(appState.FINISHED);
+    inputRef.current = null;
+    setInputCharacters("");
+  }, [appState.FINISHED]);
+
   const { timerState, startTimer, resetTimer, updateTimer } = useTimer({
     timer: initialTimerValue,
     handleResetTimer: handleResetTimer,
-    onFinish: onTypingFinished,
+    onFinish: onFinish,
   });
+
+  // Update timer when resetting
+  useEffect(() => {
+    updateTimer(initialTimerValue);
+  }, [initialTimerValue, updateTimer]);
 
   // FOR SCROLLING ANIMATION . IN FUTURE WE WILL REFACTOR INTO ANOTHER FILE.
   const handleAutoScroll = (currentCharIndex: number) => {
@@ -66,18 +91,6 @@ function MainComponent({
       paragraphElement.scrollTop += scrollAmount;
     }
   };
-
-  function handleResetTimer() {
-    setInputCharacters("");
-    const newPassage = getRandomInitialState(initialTimerValue);
-    setInitialState(newPassage);
-    setCharacterData([]);
-    setRawWpmHistory([]);
-    setTotalTypedWords(0);
-    setCorrectlyTypedWords(0);
-    setAppState(appState.IDLE);
-    updateTimer(initialTimerValue);
-  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAppState(appState.TYPING);
@@ -136,30 +149,9 @@ function MainComponent({
     }
   };
 
-  /** 
-  const onTypingFinished = () => {
-    // console.log(totalWordsTyped);
-    console.log(`timer taken: ${timerState}`);
-    setAppState(appState.FINISHED);
-    resetTimer();
-    inputRef.current = null;
-    setInputCharacters("");
-  };
-      Made a mistake, need to change the function signature because of
-      HOISTING.
-  */
-  function onTypingFinished() {
-    console.log(`timer taken: ${timerState}`);
-    setAppState(appState.FINISHED);
-    resetTimer();
-    inputRef.current = null;
-    setInputCharacters("");
-  }
-
   useEffect(() => {
     setInitialState(getRandomInitialState(initialTimerValue));
-    updateTimer(initialTimerValue);
-  }, [initialTimerValue, updateTimer]);
+  }, [initialTimerValue]);
 
   return (
     <div className="setup-container">
@@ -195,7 +187,7 @@ function MainComponent({
         <div className="reset-button">
           <button className="textButton reset-button" onClick={resetTimer}>
             <i className="reset-icon">
-              <RefreshCcw className="reset-icon" />
+              <RotateCw className="reset-icon" />
             </i>
             <span className="hover-reset-button-text">Restart Test</span>
           </button>
