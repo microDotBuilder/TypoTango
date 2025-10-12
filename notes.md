@@ -6,14 +6,14 @@
 - [x] get the text font
 - [x] get icons
 
-- [ ] fix the scroll issue
-- [ ] delete all the unnessasry code.
+- [x] fix the scroll issue
+- [x] delete all the unnessasry code.
 - [ ] fix the rest of the stats calculations
-- [ ] fix the words per minutes issue , it has to be INTEGER NOT FLOAT
-- [ ] fix the time issue.
+- [x] fix the words per minutes issue , it has to be INTEGER NOT FLOAT
+- [x] fix the time issue.
 - [ ] run code rabit
-- [ ] run eslint on whole project
-- [ ] build project
+- [x] run eslint on whole project
+- [x] build project
 - [ ] build ci/cd pipe line.
 - [ ] try using blacksmith for ci/cd
 

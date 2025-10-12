@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   flex: 1;
-  border: 1px dotted red;
+  /* border: 1px dotted red; */
   /* align-items: center; */
   height: 100%;
 }
