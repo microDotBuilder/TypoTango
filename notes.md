@@ -2,9 +2,30 @@
 
 ## TODO:
 
-- [ ] extracting the components and rendering them
-- [ ] get the text font
-- [ ] get icons
+- [x] extracting the components and rendering them
+- [x] get the text font
+- [x] get icons
+
+- [x] blinking carrot for typing text
+- [ ] fix timer display , on timer start it stays on top too much .
+- [x] reset button
+- [ ] build routing,add react router.
+- [x] fix the scroll issue
+- [x] delete all the unnessasry code.
+- [ ] fix the rest of the stats calculations
+- [x] fix the words per minutes issue , it has to be INTEGER NOT FLOAT
+- [x] fix the time issue.
+- [ ] run code rabit
+- [x] run eslint on whole project
+- [x] build project
+- [ ] build ci/cd pipe line.
+- [ ] try using blacksmith for ci/cd
+
+step2:
+
+- [ ] deploy on vercel first
+- [ ] get domain name
+- [ ] deploy on that domain on cloudflair
 
 - icons for the app lucid icons
 - seprate components:

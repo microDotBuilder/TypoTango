@@ -3,15 +3,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* background-color: var(--bg-color); */
-  /* background: #0000ff; */
-  /* z-index: 100; */
   color: var(--text-color);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   height: 32px;
-  /* margin-left: 8.5%; */
-  /* margin-bottom: 1rem; */
   background: #2c2e31;
 }
 .navbar-title {

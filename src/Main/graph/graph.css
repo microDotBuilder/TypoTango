@@ -1,0 +1,16 @@
+.graph {
+  color: var(--main-color);
+  font-size: 0.6rem;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

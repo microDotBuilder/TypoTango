@@ -4,17 +4,17 @@ function Footer() {
   return (
     <footer className="footer-container">
       <div className="keyTips">
-        <p className="keyTips-top">
+        <div className="keyTips-top">
           <p className="keyHint">tab</p>+<p className="keyHint">enter</p>-
           Restart Test
-        </p>
+        </div>
         {/* <br /> */}
-        <p className="keyTips-bottom">
+        <div className="keyTips-bottom">
           <p className="keyHint">ctrl/cmd</p>+<p className="keyHint">shift</p>+
           <p className="keyHint">p</p>
           or
           <p className="keyHint">esc</p>- Command Line
-        </p>
+        </div>
       </div>
       <div className="leftright-container">
         <div className="left">

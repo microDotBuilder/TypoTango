@@ -9,6 +9,9 @@
   --sub-alt-color: #2c2e31;
   --text-color: #d1d0c5;
   --error-color: #ca4754;
+  --color-untyped: rgba(255, 255, 255, 0.2);
+  --color-correct: #7fe08a;
+  --color-incorrect: #ff7b7b;
 }
 body {
   font-family: "Roboto Mono", monospace;
@@ -34,14 +37,18 @@ body {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+.timer-nav-display {
+  color: var(--main-color);
+  display: flex;
+  margin-left: 8.5%;
+  width: 100%;
 }
 .home-content {
   display: flex;
   flex: 1;
   width: 100%;
-  justify-content: center;
-  align-items: center;
+  /* border: 1px dotted red; */
 }
 .footer-content {
   display: flex;
