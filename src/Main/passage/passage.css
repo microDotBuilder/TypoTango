@@ -5,6 +5,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   position: relative;
+
   flex-wrap: wrap;
   scrollbar-width: none;
   -ms-overflow-style: none;

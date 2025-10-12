@@ -1,11 +1,10 @@
 .timer-container {
   display: flex;
-  z-index: 2;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 0.7rem;
   border-radius: 0.5rem;
   background-color: var(--sub-alt-color);
 }
@@ -16,7 +15,7 @@
   gap: 1.5rem;
 }
 .spacer {
-  height: 2em;
+  height: 1.3em;
   width: 0.3rem;
   background: var(--bg-color);
   border-radius: calc(var(--roundness) / 2);
@@ -34,6 +33,8 @@
   align-items: center;
   justify-content: center;
   color: var(--text-color);
+  font-size: 0.75rem;
+  font-weight: 300;
   gap: 0.5rem;
 }
 .selected {
@@ -43,6 +44,9 @@
 .time {
   display: flex;
   align-items: center;
+  /* border: 1px dotted red; */
+  font-size: 0.75rem;
+  font-weight: 300;
   justify-content: center;
   gap: 0.5rem;
 }
@@ -51,4 +55,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 300;
 }

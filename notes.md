@@ -6,6 +6,9 @@
 - [x] get the text font
 - [x] get icons
 
+- [ ] blinking carrot for typing text
+- [ ] reset button
+- [ ] build routing,add react router.
 - [x] fix the scroll issue
 - [x] delete all the unnessasry code.
 - [ ] fix the rest of the stats calculations

@@ -1,16 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { timerValue } from "../types/types";
+import { appState } from "../consts";
+import { useAppState } from "../provider/appStateProvider";
 
 export const useTimer = ({
   timer,
+  handleResetTimer,
   onFinish,
 }: {
   timer: timerValue;
+  handleResetTimer: () => void;
   onFinish: () => void;
 }) => {
   const [timerState, setTimerState] = useState<number>(timer);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
+  const { setAppState } = useAppState();
+  // const navigate = useNavigate();
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -58,7 +63,12 @@ export const useTimer = ({
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
+    // set the app state to idle
+    setAppState(appState.IDLE);
     setTimerState(timer);
+    // TODO: redirect to home page
+    handleResetTimer();
+    // setInputCharacters("");
   }, [timer]);
 
   return {

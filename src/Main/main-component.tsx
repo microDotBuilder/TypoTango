@@ -8,6 +8,7 @@ import { useTimer } from "../hooks/useTImerHook";
 import { wordState } from "../consts";
 import Finish from "./finish/finish";
 import type { CharacterData } from "./utils/typingCalculations";
+import { RefreshCcw } from "lucide-react";
 
 function MainComponent({
   initialTimerValue,
@@ -18,10 +19,6 @@ function MainComponent({
     { char: string; wordState: string }[]
   >([]);
   const { appState, state, setAppState } = useAppState();
-  const { timerState, startTimer, resetTimer, updateTimer } = useTimer({
-    timer: initialTimerValue,
-    onFinish: onTypingFinished,
-  });
 
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputCharacters, setInputCharacters] = useState("");
@@ -29,8 +26,13 @@ function MainComponent({
   const [correctlyTypedWords, setCorrectlyTypedWords] = useState(0);
   const [rawWpmHistory, setRawWpmHistory] = useState<number[]>([]);
   const [characterData, setCharacterData] = useState<CharacterData[]>([]);
+  const { timerState, startTimer, resetTimer, updateTimer } = useTimer({
+    timer: initialTimerValue,
+    handleResetTimer: handleResetTimer,
+    onFinish: onTypingFinished,
+  });
 
-  // Auto-scroll function to scroll up by 2 lines when user reaches last visible line
+  // FOR SCROLLING ANIMATION . IN FUTURE WE WILL REFACTOR INTO ANOTHER FILE.
   const handleAutoScroll = (currentCharIndex: number) => {
     const paragraphElement = document.querySelector(
       ".paragraph"
@@ -59,20 +61,23 @@ function MainComponent({
     // Check if the current character is in the last visible line (bottom third)
     const lastLineThreshold = containerHeight * (2 / 3); // Bottom third of visible area
 
-    // Debug logging
-    // console.log("Auto-scroll debug:", {
-    //   currentCharIndex,
-    //   relativeTop,
-    //   containerHeight,
-    //   lastLineThreshold,
-    //   shouldScroll: relativeTop >= lastLineThreshold,
-    // });
-
     if (relativeTop >= lastLineThreshold) {
       console.log("Scrolling by:", scrollAmount);
       paragraphElement.scrollTop += scrollAmount;
     }
   };
+
+  function handleResetTimer() {
+    setInputCharacters("");
+    const newPassage = getRandomInitialState(initialTimerValue);
+    setInitialState(newPassage);
+    setCharacterData([]);
+    setRawWpmHistory([]);
+    setTotalTypedWords(0);
+    setCorrectlyTypedWords(0);
+    setAppState(appState.IDLE);
+    updateTimer(initialTimerValue);
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAppState(appState.TYPING);
@@ -187,6 +192,14 @@ function MainComponent({
             />
           </div>
         )}
+        <div className="reset-button">
+          <button className="textButton reset-button" onClick={resetTimer}>
+            <i className="reset-icon">
+              <RefreshCcw className="reset-icon" />
+            </i>
+            <span className="hover-reset-button-text">Restart Test</span>
+          </button>
+        </div>
       </div>
     </div>
   );
