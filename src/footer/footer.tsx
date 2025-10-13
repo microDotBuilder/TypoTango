@@ -1,5 +1,7 @@
 import { HandCoinsIcon, MailIcon } from "lucide-react";
 import "./footer.css";
+import { Link } from "react-router";
+
 function Footer() {
   return (
     <footer className="footer-container">
@@ -21,7 +23,9 @@ function Footer() {
           <button className="textButton" id="contactPopupButton">
             {/* <i className="fas fa-fw fa-envelope"></i> */}
             <MailIcon className="icon" />
-            <div className="text">contact</div>
+            <Link to="/contact">
+              <div className="text">contact</div>
+            </Link>
           </button>
           <button id="supportMeButton" className="textButton">
             <HandCoinsIcon className="icon" />

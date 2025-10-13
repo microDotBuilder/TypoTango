@@ -1,14 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { App } from "./App";
 
-import Home from "./Home/Home";
-import { AppStateProvider } from "./provider/appStateProvider";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router";
+import { Contact } from "./pages/contact";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {/* <App /> */}
-    <AppStateProvider>
-      <Home />
-    </AppStateProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<App />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/home" replace />} />
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 );

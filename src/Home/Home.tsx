@@ -8,6 +8,7 @@ import { TIMERSTATE } from "../consts";
 import MainComponent from "../Main/main-component";
 import { appState } from "../consts";
 import { useAppState } from "../provider/appStateProvider";
+// import { Outlet } from "react-router";
 
 function Home() {
   const [timer, setTimer] = useState<timerValue>(TIMERSTATE["15seconds"]);
@@ -26,6 +27,7 @@ function Home() {
 
       <div className="home-content">
         <MainComponent initialTimerValue={timer} />
+        {/* <Outlet /> */}
       </div>
 
       {currentAppState.state.current === appState.TYPING ? (
