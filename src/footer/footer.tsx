@@ -29,7 +29,9 @@ function Footer() {
           </button>
           <button id="supportMeButton" className="textButton">
             <HandCoinsIcon className="icon" />
-            <div className="text">support</div>
+            <Link to="/support">
+              <div className="text">support</div>
+            </Link>
           </button>
         </div>
         <div className="right">
@@ -61,26 +63,18 @@ function Footer() {
             <i className="fab fa-fw fa-twitter"></i>
             <div className="text">twitter</div>
           </a> */}
-          <a
-            href="/terms-of-service.html"
-            className="textButton"
-            target="_blank"
-          >
+          <Link to="/terms-of-service" className="textButton">
             <i className="fas fa-fw fa-file-contract"></i>
             <div className="text">terms</div>
-          </a>
-          <a
-            href="/security-policy.html"
-            className="textButton"
-            target="_blank"
-          >
+          </Link>
+          <Link to="/security-policy" className="textButton">
             <i className="fas fa-fw fa-shield-alt"></i>
             <div className="text">security</div>
-          </a>
-          <a href="/privacy-policy.html" className="textButton" target="_blank">
+          </Link>
+          <Link to="/privacy-policy" className="textButton">
             <i className="fas fa-fw fa-lock"></i>
             <div className="text">privacy</div>
-          </a>
+          </Link>
         </div>
 
         {/* <div>
