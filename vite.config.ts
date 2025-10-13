@@ -3,9 +3,13 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/home",
   build: {
     // force esbuild to minify CSS instead of the LightningCSS path
     cssMinify: "esbuild",
+  },
+  server: {
+    port: 3000,
   },
   plugins: [
     react({

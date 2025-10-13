@@ -7,12 +7,12 @@
 - [x] get icons
 
 - [x] blinking carrot for typing text
-- [ ] fix timer display , on timer start it stays on top too much .
+- [x] fix timer display , on timer start it stays on top too much .
 - [x] reset button
-- [ ] build routing,add react router.
+- [x] build routing,add react router.
 - [x] fix the scroll issue
 - [x] delete all the unnessasry code.
-- [ ] fix the rest of the stats calculations
+- [x] fix the rest of the stats calculations
 - [x] fix the words per minutes issue , it has to be INTEGER NOT FLOAT
 - [x] fix the time issue.
 - [ ] run code rabit

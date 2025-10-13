@@ -7,6 +7,7 @@ function NavBar() {
   const isLoggedIn = false; // TODO: implement login in future.
   const userIcon = isLoggedIn ? "user-icon-logedin" : "user-icon";
   const currentAppState = useAppState();
+
   return (
     <div className="navbar">
       <div className="navbar-title">TypoTango</div>

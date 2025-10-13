@@ -37,6 +37,10 @@ function MainComponent({
     setTotalTypedWords(0);
     setCorrectlyTypedWords(0);
     setAppState(appState.IDLE);
+    // call reaload function
+    if (window !== undefined) {
+      window.location.reload();
+    }
   }, [initialTimerValue, setAppState, appState.IDLE]);
 
   const onFinish = useCallback(() => {

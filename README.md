@@ -1,75 +1,144 @@
-# React + TypeScript + Vite
+# TypoTango
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fast, and beautiful typing test application built with React, TypeScript, and Vite. TypoTango helps you improve your typing speed and accuracy with a clean, distraction-free interface.
 
-Currently, two official plugins are available:
+![TypoTango](https://img.shields.io/badge/React-18+-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)
+![Vite](https://img.shields.io/badge/Vite-5.0+-purple.svg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- ⚡ **Fast & Responsive**: Built with Vite for lightning-fast development and builds
+- 🎯 **Multiple Timer Options**: Choose from 15s, 30s, 60s, or custom time limits
+- 📊 **Real-time Statistics**: Track your WPM, accuracy, and typing consistency
+- 🎨 **Beautiful UI**: Dark theme with yellow accents and smooth animations
+- 📱 **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- ⌨️ **Keyboard Shortcuts**: Quick restart with `Tab + Enter`
+- 🔄 **Auto-scroll**: Automatically scrolls through long passages
+- 📈 **Progress Tracking**: Visual feedback for correct/incorrect keystrokes
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Getting Started
 
-Note: This will impact Vite dev & build performances.
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js 18+
+- pnpm (recommended) or npm
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Clone the repository:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/microDotBuilder/TypoTango.git
+cd TypoTango
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
+
+3. Start the development server:
+
+```bash
+pnpm dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Building for Production
+
+```bash
+pnpm build
+```
+
+The built files will be in the `dist` directory.
+
+## Project Structure
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── NavBar/          # Navigation bar
+│   ├── Footer/          # Footer with links and shortcuts
+│   └── TimerNav/        # Timer selection component
+├── pages/               # Route components
+│   ├── contact.tsx      # Contact page (under construction)
+│   ├── support.tsx      # Support page
+│   ├── terms-of-service.tsx
+│   ├── security-policy.tsx
+│   └── privacy-policy.tsx
+├── Main/                # Main typing test components
+│   ├── main-component.tsx
+│   ├── passage/         # Text passage display
+│   ├── graph/           # Statistics visualization
+│   └── finish/           # Results screen
+├── hooks/               # Custom React hooks
+├── context/             # React context providers
+├── types/               # TypeScript type definitions
+└── utils/               # Utility functions
+```
+
+## Tech Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: CSS with CSS Variables
+- **Icons**: Lucide React
+- **Routing**: React Router
+- **Package Manager**: pnpm
+
+## Available Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build
+- `pnpm lint` - Run ESLint
+- `pnpm type-check` - Run TypeScript type checking
+
+## Keyboard Shortcuts
+
+- `Tab + Enter` - Restart the typing test
+- `Ctrl/Cmd + Shift + P` - Open command palette
+- `Esc` - Close modals or return to main screen
+
+## Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Reporting Issues
+
+Found a bug or have a feature request? Please open an issue on our [GitHub Issues](https://github.com/microDotBuilder/TypoTango/issues) page.
+
+## Support
+
+- 📧 Email: support@typotango.com
+- 🐛 Issues: [GitHub Issues](https://github.com/microDotBuilder/TypoTango/issues)
+- ⭐ Star us on GitHub if you like the project!
+
+## Legal
+
+- [Terms of Service](/terms-of-service)
+- [Privacy Policy](/privacy-policy)
+- [Security Policy](/security-policy)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by MonkeyType and other typing test applications
+- Built with modern web technologies for the best user experience
+- Thanks to all contributors and users who help improve TypoTango!
+
+---
+
+**Happy Typing! 🎯**
