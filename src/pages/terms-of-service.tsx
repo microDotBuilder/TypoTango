@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FileText, ExternalLink, Home } from "lucide-react";
+import { FileText, Home } from "lucide-react";
 import { Link } from "react-router";
 import "./legal.css";
 
