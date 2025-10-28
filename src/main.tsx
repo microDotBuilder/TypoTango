@@ -8,6 +8,7 @@ import { Support } from "./pages/support";
 import { TermsOfService } from "./pages/terms-of-service";
 import { SecurityPolicy } from "./pages/security-policy";
 import { PrivacyPolicy } from "./pages/privacy-policy";
+import LogIn from "./LogIn/LogIn";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<App />} />
+        <Route path="/home/login" element={<LogIn />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/support" element={<Support />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
