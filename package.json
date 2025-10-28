@@ -12,7 +12,10 @@
     "ci": "pnpm lint && pnpm type-check && pnpm build "
   },
   "dependencies": {
+    "@auth/core": "0.37.0",
+    "@convex-dev/auth": "^0.0.90",
     "classnames": "^2.5.1",
+    "convex": "^1.28.0",
     "lucide-react": "^0.545.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
