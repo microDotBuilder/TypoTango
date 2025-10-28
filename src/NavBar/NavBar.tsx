@@ -19,7 +19,7 @@ function NavBar() {
           <a href="/typotango/notifications" className="navbar-option">
             <Bell className="bell-icon" />
           </a>
-          <a href="/typotango/login" className="navbar-option">
+          <a href="/home/login" className="navbar-option">
             <User className={userIcon} />
           </a>
         </div>

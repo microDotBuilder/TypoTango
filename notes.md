@@ -5,7 +5,9 @@
 - [x] extracting the components and rendering them
 - [x] get the text font
 - [x] get icons
-
+- [ ] add test for all the methods
+- [ ] add playwright test
+- [ ] add history component
 - [x] blinking carrot for typing text
 - [x] fix timer display , on timer start it stays on top too much .
 - [x] reset button
@@ -18,7 +20,7 @@
 - [ ] run code rabit
 - [x] run eslint on whole project
 - [x] build project
-- [ ] build ci/cd pipe line.
+- [x] build ci/cd pipe line.
 - [ ] try using blacksmith for ci/cd
 
 step2:
