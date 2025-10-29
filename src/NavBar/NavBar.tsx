@@ -1,11 +1,11 @@
 import { useAppState } from "../provider/appStateProvider";
 import { appState } from "../consts";
 import "./NavBar.css";
-import { Bell, User } from "lucide-react";
-
+import { Bell } from "lucide-react";
+import { AuthButton } from "../components/ui/AuthButton";
 function NavBar() {
-  const isLoggedIn = false; // TODO: implement login in future.
-  const userIcon = isLoggedIn ? "user-icon-logedin" : "user-icon";
+  // const isLoggedIn = false; // TODO: implement login in future.
+  // const userIcon = isLoggedIn ? "user-icon-logedin" : "user-icon";
   const currentAppState = useAppState();
 
   return (
@@ -19,9 +19,10 @@ function NavBar() {
           <a href="/typotango/notifications" className="navbar-option">
             <Bell className="bell-icon" />
           </a>
-          <a href="/home/login" className="navbar-option">
+          {/* <a href="/home/signup " className="navbar-option">
             <User className={userIcon} />
-          </a>
+          </a> */}
+          <AuthButton />
         </div>
       )}
     </div>
