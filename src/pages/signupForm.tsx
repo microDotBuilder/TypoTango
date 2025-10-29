@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
 import { User, Home } from "lucide-react";
 import { Link, useNavigate } from "react-router";
-import "../LogIn/LogIn.css";
+
+import "./signup.css";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { toast } from "sonner";
 
@@ -16,7 +17,7 @@ export default function SignUpForm() {
   //   const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
       setSubmitting(true);
       try {
@@ -30,15 +31,16 @@ export default function SignUpForm() {
           formData.delete("confirmPassword");
         }
         formData.set("flow", flow);
-        void signIn("password", formData);
+        await signIn("password", formData);
         handleRedirectToHome();
       } catch (error: unknown) {
         if (error instanceof Error) {
           if (
-            typeof error?.message === "string" &&
-            error.message.includes("Invalid password")
+            (typeof error?.message === "string" &&
+              error.message.includes("InvalidSecret")) ||
+            error.message.includes("InvalidAccountId")
           ) {
-            toast.error("Invalid password. Please try again.");
+            toast.error("Invalid username or password. Please try again.");
           } else {
             toast.error(
               flow === "signIn"

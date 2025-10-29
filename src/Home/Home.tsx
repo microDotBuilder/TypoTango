@@ -7,7 +7,6 @@ import type { timerValue } from "../types/types";
 import { TIMERSTATE } from "../consts";
 import MainComponent from "../Main/main-component";
 import { appState } from "../consts";
-import { Toaster } from "sonner";
 import { useAppState } from "../provider/appStateProvider";
 // import { Outlet } from "react-router";
 
@@ -38,7 +37,6 @@ function Home() {
           <Footer />
         </div>
       )}
-      <Toaster position="bottom-right" />
     </div>
   );
 }
