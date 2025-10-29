@@ -16,9 +16,14 @@ export function AuthButton() {
   return (
     <div>
       {isAuthenticated ? (
-        <button className="logout-button" onClick={handleSignOut}>
-          Sign out
-        </button>
+        <div className="auth-button-container">
+          <button className="logout-button" onClick={handleSignOut}>
+            Sign out
+          </button>
+          <Link to="/home/profile" className="navbar-option">
+            <User className={userIcon} />
+          </Link>
+        </div>
       ) : (
         <Link to="/home/signup" className="navbar-option">
           <User className={userIcon} />

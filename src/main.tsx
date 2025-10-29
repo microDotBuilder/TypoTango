@@ -13,6 +13,7 @@ import { ConvexReactClient } from "convex/react";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import SignUpForm from "./pages/signupForm";
 import { Toaster } from "sonner";
+import Profile from "./pages/profile";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
@@ -23,7 +24,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<App />} />
-          {/* <Route path="/home/login" element={<LogIn />} /> */}
+          <Route path="/home/profile" element={<Profile />} />
           <Route path="/home/signup" element={<SignUpForm />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/support" element={<Support />} />
