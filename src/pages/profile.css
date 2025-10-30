@@ -179,7 +179,7 @@
 }
 
 .upgrade-button:hover {
-  background: #b8950f;
+  background: var(--color-correct);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(226, 183, 20, 0.3);
 }
@@ -236,8 +236,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--error-color);
-  color: white;
+  background: var(--main-color);
+  color: var(--bg-color);
   border: none;
   border-radius: var(--roundness);
   font-weight: 600;
@@ -248,9 +248,9 @@
 }
 
 .action-button:hover {
-  background: #a03a41;
+  /* background: #a03a41; */
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(202, 71, 84, 0.3);
+  /* box-shadow: 0 4px 12px rgba(202, 71, 84, 0.3); */
 }
 
 .action-button .button-icon {

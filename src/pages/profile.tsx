@@ -36,9 +36,9 @@ function Profile() {
     );
   }
 
-  // If user is not logged in, redirect to home
   if (!user) {
-    return navigate("/home");
+    navigate("/home");
+    return;
   }
 
   // Determine authentication type
