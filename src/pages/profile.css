@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+/* Import theme variables from Home.css */
+:root {
+  --roundness: 0.5rem;
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --caret-color: #e2b714;
+  --sub-color: #646669;
+  --sub-alt-color: #2c2e31;
+  --text-color: #d1d0c5;
+  --error-color: #ca4754;
+  --color-untyped: rgba(255, 255, 255, 0.2);
+  --color-correct: #7fe08a;
+  --color-incorrect: #ff7b7b;
+}
+
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  padding: 2rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.profile-content {
+  max-width: 40rem;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Profile Icon */
+.profile-icon {
+  margin-bottom: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.profile-icon .icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--main-color);
+}
+
+/* Main Heading */
+.main-heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Profile Card */
+.profile-card {
+  background: var(--sub-alt-color);
+  padding: 2rem;
+  border-radius: var(--roundness);
+  border: 1px solid var(--sub-color);
+  margin-bottom: 0.7rem;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+  text-align: left;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--sub-color);
+}
+
+.profile-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.section-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  color: var(--sub-color);
+  font-weight: 500;
+}
+
+.field-value {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  word-break: break-all;
+}
+
+/* Authentication Badge */
+.auth-badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--roundness);
+  font-weight: 500;
+}
+
+.auth-badge.password {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--color-correct);
+  border: 1px solid var(--color-correct);
+}
+
+.auth-badge.anonymous {
+  background: rgba(146, 103, 20, 0.2);
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+}
+
+.badge-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.badge-text {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+/* Upgrade Section */
+.upgrade-section {
+  background: var(--bg-color);
+  border: 2px dashed var(--main-color);
+  border-radius: var(--roundness);
+  padding: 1.5rem;
+  /* margin-bottom: 0.7rem; */
+}
+
+.upgrade-prompt h3 {
+  color: var(--main-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-prompt p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.upgrade-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: var(--roundness);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.upgrade-button:hover {
+  background: var(--color-correct);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(226, 183, 20, 0.3);
+}
+
+/* Loading State */
+.profile-loading {
+  text-align: center;
+  padding: 3rem;
+}
+
+.profile-loading .icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.profile-loading p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+/* Not Signed In State */
+.profile-not-signed-in {
+  text-align: center;
+  padding: 2rem;
+}
+
+.profile-not-signed-in .icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Description */
+.description {
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Actions */
+.profile-actions {
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: var(--roundness);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.action-button:hover {
+  /* background: #a03a41; */
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 12px rgba(202, 71, 84, 0.3); */
+}
+
+.action-button .button-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Login Button (for redirect) */
+.login-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: var(--roundness);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.login-button:hover {
+  background: #b8950f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(226, 183, 20, 0.3);
+}
+
+/* Back to Home Link */
+.back-to-home {
+  animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--sub-alt-color);
+  border: 1px solid var(--sub-color);
+  border-radius: var(--roundness);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.home-link:hover {
+  background: var(--sub-color);
+  border-color: var(--main-color);
+  color: var(--main-color);
+  transform: translateY(-2px);
+}
+
+.home-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-content {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .profile-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+}

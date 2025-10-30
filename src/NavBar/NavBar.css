@@ -40,6 +40,9 @@
 .navbar-option {
   font-size: 1rem;
   font-weight: 200;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   color: var(--text-color);
   text-decoration: none;
 }

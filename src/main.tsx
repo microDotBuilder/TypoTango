@@ -8,22 +8,33 @@ import { Support } from "./pages/support";
 import { TermsOfService } from "./pages/terms-of-service";
 import { SecurityPolicy } from "./pages/security-policy";
 import { PrivacyPolicy } from "./pages/privacy-policy";
-import LogIn from "./LogIn/LogIn";
+// import LogIn from "./LogIn/LogIn";
+import { ConvexReactClient } from "convex/react";
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import SignUpForm from "./pages/signupForm";
+import { Toaster } from "sonner";
+import Profile from "./pages/profile";
+
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/home" element={<App />} />
-        <Route path="/home/login" element={<LogIn />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/security-policy" element={<SecurityPolicy />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="*" element={<Navigate to="/home" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <ConvexAuthProvider client={convex}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<App />} />
+          <Route path="/home/profile" element={<Profile />} />
+          <Route path="/home/signup" element={<SignUpForm />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/security-policy" element={<SecurityPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<Navigate to="/home" replace />} />
+        </Routes>
+        <Toaster />
+      </BrowserRouter>
+    </ConvexAuthProvider>
   </StrictMode>
 );
